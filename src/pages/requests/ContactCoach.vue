@@ -27,10 +27,13 @@ export default {
   methods: {
     submitForm() {
       this.formIsValid = true;
-      if (this.email === '' || !this.email.includes('@') || this.message === ''){
+      if (!this.email === '' || !this.email.includes('@') || !this.message === ''){
         this.formIsValid = false;
+        console.log("Form is f###ing munted");
         return;        
       }
+      console.log('Email address is: ' + this.email);
+      console.log('Message is ' + this.message);
       this.$store.dispatch('requests/contactCoach', {
         email: this.email,
         message: this.message,
