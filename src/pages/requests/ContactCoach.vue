@@ -6,7 +6,7 @@
     </div>
     <div class="form-control">
       <label for="message">Message</label>
-      <textarea id="message" rows="5"></textarea>
+      <textarea id="message" rows="5" v-model.trim="message"></textarea>
     </div>
     <p class="errors" v-if="!formIsValid">Please enter a valid email and/or a message</p>
     <div class="actions">
@@ -32,8 +32,8 @@ export default {
         console.log("Form is f###ing munted");
         return;        
       }
-      console.log('Email address is: ' + this.email);
-      console.log('Message is ' + this.message);
+      console.log("Message is: ")
+      console.log(this.message);
       this.$store.dispatch('requests/contactCoach', {
         email: this.email,
         message: this.message,
